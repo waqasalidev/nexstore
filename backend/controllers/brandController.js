@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import Brand from "../models/Brand.js";
 import Category from "../models/Category.js";
 
@@ -16,10 +17,11 @@ export const getBrands = async (req, res) => {
         query.category_id = cat._id;
       } else {
         // If not found, check if it matches category_id directly
-        try {
+        if (mongoose.isValidObjectId(category)) {
           query.category_id = category;
-        } catch (e) {
-          // ignore invalid ObjectIds
+        } else {
+          // Avoid CastError by setting a query that matches nothing
+          query.category_id = new mongoose.Types.ObjectId();
         }
       }
     }
