@@ -91,17 +91,6 @@ npm install
 ```
 
 Create a `.env` file in the `backend/` directory:
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/nexstore
-JWT_SECRET=nexstore_jwt_secret_key_123
-
-# Admin Email Notifications (SMTP configuration)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=admin@nexstore.com
-EMAIL_PASS=your_app_password_here
-ADMIN_EMAIL=admin@nexstore.com
 ```
 
 ### 2. Seed the Database
@@ -120,9 +109,8 @@ npm install
 ```
 
 Create a `.env` file in the `frontend/` directory (for API bindings):
-```env
-VITE_SUPABASE_URL=https://twtnlmmugkoetuqtezcv.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=mock-key-123
+
+
 ```
 
 ---
