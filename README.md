@@ -141,12 +141,7 @@ Vite will proxy all API endpoint requests (`/api`) and static image uploads (`/u
 
 Use these pre-registered user logins to test authentication and role management:
 
-| Role | Email | Password |
-| :--- | :--- | :--- |
-| **Administrator** | `admin@nexstore.com` | `admin123` |
-| **Standard Customer** | `user@nexstore.com` | `user123` |
 
----
 
 ## 🧪 Verification Tasks
 
