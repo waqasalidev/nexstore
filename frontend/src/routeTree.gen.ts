@@ -583,12 +583,5 @@ export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
 
-import type { getRouter } from './router.jsx'
-import type { startInstance } from './start.js'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
+// SPA mode: TanStack Start SSR declarations removed.
+// This project is deployed as a Vite SPA (no SSR).

@@ -7,13 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { useProducts } from "@/lib/queries";import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-    { title: "NexStore — Shop The Future" },
-    { name: "description", content: "Experience products in immersive 3D before you buy." }]
-
-  }),
-  component: Index
+  component: Index,
 });
 
 const categories = [
