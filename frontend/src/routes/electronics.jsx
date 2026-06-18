@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { CategoryPage } from "@/components/CategoryPage";import { jsx as _jsx } from "react/jsx-runtime";
+export const Route = createFileRoute("/electronics")({ component: () => /*#__PURE__*/_jsx(CategoryPage, { slug: "electronics", title: "Electronics", subtitle: "Flagship devices, studio-grade audio, and the gear that defines tomorrow." }) });
