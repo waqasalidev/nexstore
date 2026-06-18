@@ -98,18 +98,31 @@ app.post("/api/upload", (req, res, next) => {
   });
 });
 
+const envOrigins = [];
+if (process.env.FRONTEND_URL) {
+  envOrigins.push(...process.env.FRONTEND_URL.split(",").map(url => url.trim()));
+}
+if (process.env.CLIENT_URL) {
+  envOrigins.push(...process.env.CLIENT_URL.split(",").map(url => url.trim()));
+}
+
 const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5000",
   "http://localhost:3000",
-  process.env.FRONTEND_URL,
+  "https://nexstoore.vercel.app",
+  ...envOrigins,
 ].filter(Boolean);
 
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps or curl/Postman)
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== "production") {
+
+    const normalizedOrigin = origin.replace(/\/$/, "");
+    const normalizedAllowedOrigins = allowedOrigins.map(o => o.replace(/\/$/, ""));
+
+    if (normalizedAllowedOrigins.indexOf(normalizedOrigin) !== -1 || process.env.NODE_ENV !== "production") {
       callback(null, true);
     } else {
       callback(new Error(`Origin ${origin} not allowed by CORS`));
