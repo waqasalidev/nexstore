@@ -92,17 +92,7 @@ npm install
 
 Create a `.env` file in the `backend/` directory:
 ```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/nexstore
-JWT_SECRET=nexstore_jwt_secret_key_123
 
-# Admin Email Notifications (SMTP configuration)
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=admin@nexstore.com
-EMAIL_PASS=your_app_password_here
-ADMIN_EMAIL=admin@nexstore.com
-```
 
 ### 2. Seed the Database
 NexStore comes with a seeder script that populates categories, brand structures, users, and **239 realistic catalog products** matching all visual categories. Run this script to populate your database:
@@ -121,9 +111,7 @@ npm install
 
 Create a `.env` file in the `frontend/` directory (for API bindings):
 ```env
-VITE_SUPABASE_URL=https://twtnlmmugkoetuqtezcv.supabase.co
-VITE_SUPABASE_PUBLISHABLE_KEY=mock-key-123
-```
+
 
 ---
 
@@ -166,7 +154,3 @@ Use these pre-registered user logins to test authentication and role management:
    - Email is dispatched to the admin recipient configured in the backend `.env`.
 4. **Brand Carousel Filtering**: Click any brand logo on the home carousel (e.g. Nike, Apple, Samsung, Levi's). Verify it redirects to `/search` with the query string pre-set, showing only products of that brand under a gold badge filter.
 5. **Image Upload (Admin)**: Log in as `admin@nexstore.com`, edit a product in the Admin Panel, select a local image from your disk, and save. Verify that the image uploads correctly to `backend/uploads/` and fires a toast `"Image updated successfully."` with zero JSON parse syntax errors.
-
-eeded Credentials for Testing:
-Admin Login: admin@nexstore.com (password: admin123)
-Standard User Login: user@nexstore.com (password: user123)
