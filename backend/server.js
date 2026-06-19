@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
+import { autoSeedIfEmpty } from "./utils/autoSeed.js";
 
 // Routes imports
 import authRoutes from "./routes/authRoutes.js";
@@ -40,8 +41,12 @@ if (missingEnv.length > 0) {
   }
 }
 
-// Connect to Database
-connectDB();
+// Connect to Database and auto-seed if empty
+const initDB = async () => {
+  await connectDB();
+  await autoSeedIfEmpty();
+};
+initDB();
 
 const app = express();
 

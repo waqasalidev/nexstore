@@ -8,8 +8,10 @@ const connectDB = async () => {
   }
 
   const options = {
-    serverSelectionTimeoutMS: 5000, // Wait 5 seconds before failing connection
-    autoIndex: process.env.NODE_ENV !== "production", // Don't build indexes in production
+    serverSelectionTimeoutMS: 30000, // Wait 30 seconds before failing connection (important for Atlas cold starts)
+    connectTimeoutMS: 30000,
+    socketTimeoutMS: 60000,
+    autoIndex: true, // Always build indexes (needed on initial deploy)
   };
 
   try {
