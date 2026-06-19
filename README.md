@@ -1,6 +1,6 @@
-# NexStore — Premium Full-Stack 3D E-Commerce Platform
+# 🏪 NexStore — Premium Full-Stack 3D E-Commerce Platform
 
-NexStore is a full-stack, state-of-the-art 3D e-commerce web application. Customers can search, inspect premium items in a fully interactive 3D WebGL Canvas before buying, customize sizes/colors, manage carts/wishlists, checkout, and send inquiries. The platform includes a comprehensive Admin Panel for dynamic catalog creation, stock levels, reordering product media galleries, and local disk image uploads.
+NexStore is a state-of-the-art, full-stack 3D e-commerce web application. Customers can search, inspect items in a fully interactive 3D WebGL Canvas before buying, customize sizes/colors, manage carts/wishlists, checkout, and send inquiries. The platform includes a comprehensive Admin Panel for dynamic catalog creation, stock levels, reordering product media galleries, and local disk image uploads.
 
 ---
 
@@ -11,7 +11,7 @@ NexStore is a full-stack, state-of-the-art 3D e-commerce web application. Custom
   - Dynamic orbital controls: rotate via mouse drag, zoom in/out via scroll, auto-rotation, and interactive point lighting.
   - **Graceful 3D Card Fallback**: If a product has no custom category model, it renders a floating glassmorphic 3D card texture-mapped with the product's actual image.
 * 💳 **Dynamic Shopping Cart & Wishlist**: Persistent database-backed shopping cart and wishlist synced to user accounts.
-* 🛡️ **JWT Custom Authentication & Roles**: Custom mock Supabase auth layer connecting to Express JWT auth endpoints (`/api/auth`) with automatic route-guarding based on roles (User vs Admin).
+* 🛡️ **JWT Custom Authentication & Roles**: Custom authentication layer connecting to Express JWT auth endpoints (`/api/auth`) with automatic route-guarding based on roles (User vs Admin).
 * 📊 **Admin Dashboard**: Complete catalog management panel (Add, Edit, Delete products, manage stock levels, and customize sizes/colors) with changes updating instantly in real-time.
 * 🖼️ **Image Gallery Manager**: Upload product images from local disk (stored in `backend/uploads/` statically) or URL, reorder cover images, and delete from database with immediate visual updates.
 * 📨 **Contact Center & FAQ Desk**:
@@ -93,6 +93,7 @@ npm install
 Create a `.env` file in the `backend/` directory:
 ```env
 
+```
 
 ### 2. Seed the Database
 NexStore comes with a seeder script that populates categories, brand structures, users, and **239 realistic catalog products** matching all visual categories. Run this script to populate your database:
@@ -126,7 +127,7 @@ In the `backend` folder, run the development script. It executes Nodemon to auto
 cd backend
 npm run dev
 ```
-*Console output should verify: `Server running in development mode on port 5000` and `MongoDB Connected: localhost`.*
+*Console output should verify: `Server running in development mode on port 5001` and `MongoDB Connected`.*
 
 ### 3. Launch Vite Frontend Server
 In the `frontend` folder, launch the Vite development server:
@@ -134,7 +135,7 @@ In the `frontend` folder, launch the Vite development server:
 cd ../frontend
 npm run dev
 ```
-Vite will proxy all API endpoint requests (`/api`) and static image uploads (`/uploads`) directly to the backend running on port `5000`.
+Vite will proxy all API endpoint requests (`/api`) and static image uploads (`/uploads`) directly to the backend running on port `5001`.
 
 ---
 
@@ -142,7 +143,12 @@ Vite will proxy all API endpoint requests (`/api`) and static image uploads (`/u
 
 Use these pre-registered user logins to test authentication and role management:
 
+| Account Type | Email | Password | Role |
+| :--- | :--- | :--- | :--- |
+| **Administrator** | `admin@nexstore.com` | `admin123` | Full Write/Edit access, uploads, catalog settings |
+| **Standard User** | `user@nexstore.com` | `user123` | Read-only browsing, cart management, wishlists |
 
+---
 
 ## 🧪 Verification Tasks
 
